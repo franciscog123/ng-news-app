@@ -1,6 +1,6 @@
 @font-face {
     font-family: Chomsky;
-    src: url(/assets/font/Chomsky.woff) format('woff');
+    src: url(../assets/font/Chomsky.woff) format('woff');
   }
 
 .spacer{
