@@ -1,0 +1,15 @@
+.footer
+{
+text-align: left;
+font-size: medium;
+}
+
+.icon
+{
+padding:5px;
+margin-top: 10px;
+}
+
+.icon:hover{
+transform: scale(1.2);
+}

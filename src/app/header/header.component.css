@@ -9,11 +9,6 @@
     font-size: x-large;
 }
 
-.footer
-{
-    color: white;
-}
-
 .spacer
 {
     flex: 1 1 auto;
@@ -42,22 +37,6 @@
     text-decoration-line: underline ;
 }
 
-.footer
-{
-text-align: left;
-font-size: medium;
-}
-
-.icon
-{
-padding:5px;
-margin-top: 10px;
-}
-
-.icon:hover{
-transform: scale(1.2);
-}
-
 .search-button
 {
     color: white;
@@ -70,19 +49,6 @@ transform: scale(1.2);
 
 .input-bar{
     margin: 5px;
-}
-
-/* Article title font */
-h1, h2, h3, h4, h5{
-    font-family: 'Merriweather', serif;
-    font-weight: 700;
-}
-
-/* Article body font */
-p{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 18px;
-    line-height: 30px;
 }
 
 .submit-search-button{
