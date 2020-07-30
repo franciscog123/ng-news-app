@@ -1,4 +1,30 @@
-<h1>Article Title</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque quam nisi, eget tristique quam iaculis id. Maecenas rutrum aliquam malesuada. Quisque euismod faucibus enim id pellentesque. Aliquam vel libero mauris. Praesent mollis fermentum nisi, ac gravida orci sagittis vel. In mattis augue in odio gravida, in elementum eros aliquam. Morbi scelerisque, ante eu facilisis suscipit, ante felis lobortis ligula, nec rhoncus augue dolor in neque. Aenean quam ipsum, ultricies nec blandit eget, interdum id magna. Praesent consectetur ipsum mi, in laoreet lorem pharetra quis. Curabitur a auctor mauris, sed consequat dui. Maecenas ullamcorper eu leo ac porta. Donec hendrerit felis mollis purus efficitur, at aliquam odio aliquam. Sed pellentesque, mauris accumsan efficitur tincidunt, tortor nunc congue diam, id rhoncus odio neque sed risus. Donec condimentum nulla et nisi ornare ullamcorper. Mauris nec tristique diam. </p>
-<p>Cras vestibulum, ex sit amet cursus sodales, arcu mauris fringilla dui, et viverra dui nisl nec nisi. Pellentesque sit amet ligula nunc. Donec sed enim euismod, elementum magna a, sodales enim. Etiam aliquam accumsan tortor vitae aliquam. Duis mollis hendrerit blandit. Ut ullamcorper libero vitae sem egestas rhoncus. Nulla luctus luctus mollis. Aliquam erat volutpat. Ut molestie malesuada libero a vulputate. Donec volutpat nisl purus, ut sodales odio eleifend nec. Phasellus efficitur sit amet tellus ac pulvinar. Mauris luctus, justo vitae blandit efficitur, libero enim semper elit, et aliquet nisl lorem nec est. Etiam non ex non lectus semper aliquam. Nunc placerat metus et dapibus pellentesque. Aliquam elementum risus id ligula rutrum eleifend. </p>
-<p>Cras vestibulum, ex sit amet cursus sodales, arcu mauris fringilla dui, et viverra dui nisl nec nisi. Pellentesque sit amet ligula nunc. Donec sed enim euismod, elementum magna a, sodales enim. Etiam aliquam accumsan tortor vitae aliquam. Duis mollis hendrerit blandit. Ut ullamcorper libero vitae sem egestas rhoncus. Nulla luctus luctus mollis. Aliquam erat volutpat. Ut molestie malesuada libero a vulputate. Donec volutpat nisl purus, ut sodales odio eleifend nec. Phasellus efficitur sit amet tellus ac pulvinar. Mauris luctus, justo vitae blandit efficitur, libero enim semper elit, et aliquet nisl lorem nec est. Etiam non ex non lectus semper aliquam. Nunc placerat metus et dapibus pellentesque. Aliquam elementum risus id ligula rutrum eleifend. </p>
+<div class="content">
+    
+    <div *ngIf="topStories$" class="top-stories">
+        <h2 class="main-title">Top Stories</h2>
+        <div *ngFor="let story of topStories$.results | slice:0:21;">
+            <div class="topStory">
+                <span class="text">     
+                <a [href]="story.url"><h1>{{story.title}}</h1></a> 
+                    <p>{{story.abstract}}</p>
+                </span>
+                <span class="image"><img [src]="story.multimedia[3].url"></span>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="popularStories$" class="popular-stories">
+        <h2 class="main-title">Most Popular</h2>
+        <div *ngFor="let story of popularStories$.results | slice:0:21; index as i">
+            <div class="topStory">
+                <span class="text">     
+                <a [href]="story.url"><h1>{{story.title}}</h1></a> 
+                    <p>{{story.abstract}}</p>
+                </span>
+                <span class="image" *ngIf="story.media[0]"><img [src]="constructSrc(i)"></span>
+            </div>
+        </div>
+    </div>
+
+
+</div>
