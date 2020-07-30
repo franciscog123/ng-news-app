@@ -1,14 +1,22 @@
 <div class="content">
     
+    <div *ngIf="!loadTopStories">
+        <h1>We're sorry. We can't load the top stories. It appears we've reached the per minute limit of the NY Times API free tier. Please try again in a few minutes.</h1>
+    </div>
+    <div *ngIf="!loadPopular">
+        <h1>We're sorry. We can't load popular stories. It appears we've reached the per minute limit of the NY Times API free tier. Please try again in a few minutes.</h1>
+    </div>
+
     <div *ngIf="topStories$" class="top-stories">
         <h2 class="main-title">Top Stories</h2>
         <div *ngFor="let story of topStories$.results | slice:0:21;">
             <div class="topStory">
-                <span class="text">     
+                <span class="text"> 
+                <div class="publish-date">Published {{story.published_date | date:'mediumDate'}}</div>    
                 <a [href]="story.url"><h1>{{story.title}}</h1></a> 
                     <p>{{story.abstract}}</p>
                 </span>
-                <span class="image"><img [src]="story.multimedia[3].url"></span>
+                <span *ngIf="story.multimedia[3]" class="image"><img [src]="story.multimedia[3].url"></span>
             </div>
         </div>
     </div>
@@ -17,7 +25,8 @@
         <h2 class="main-title">Most Popular</h2>
         <div *ngFor="let story of popularStories$.results | slice:0:21; index as i">
             <div class="topStory">
-                <span class="text">     
+                <span class="text">
+                <div class="publish-date">Published {{story.published_date | date:'mediumDate'}}</div>         
                 <a [href]="story.url"><h1>{{story.title}}</h1></a> 
                     <p>{{story.abstract}}</p>
                 </span>
@@ -25,6 +34,5 @@
             </div>
         </div>
     </div>
-
 
 </div>

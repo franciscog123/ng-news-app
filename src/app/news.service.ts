@@ -22,7 +22,7 @@ export class NewsService {
     return this.http.get(`https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=${this.apiKey}`,this.options)
     .pipe(
       tap(res => console.log(res)),
-      retry(3),
+      retry(1),
       catchError(this.handleError)
     );
   }
@@ -31,7 +31,7 @@ export class NewsService {
     return this.http.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${this.apiKey}`,this.options)
     .pipe(
       tap(res => console.log(res)),
-      retry(3),
+      retry(1),
       catchError(this.handleError)
     );
   }

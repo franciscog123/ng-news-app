@@ -10,6 +10,10 @@ export class HomepageComponent implements OnInit {
 
   topStories$;
   popularStories$;
+  popularError$;
+  loadTopStories:boolean=true;
+  topError$;
+  loadPopular:boolean=true;
 
   constructor( private newsService: NewsService ) {
    }
@@ -21,12 +25,29 @@ export class HomepageComponent implements OnInit {
 
   requestTopStories(){
     this.newsService.getTopStories()
-    .subscribe((data) => this.topStories$ = data);
+    .subscribe(
+      (data) => {
+        this.loadTopStories=true;
+        this.topStories$ = data;
+      },
+      (error) => {
+        this.loadTopStories=false;
+        this.topError$=error;
+      }
+    );
   }
 
   requestPopularStories(){
     this.newsService.getPopularStories()
-    .subscribe((data) => this.popularStories$ = data);
+    .subscribe(
+      (data) => {
+        this.loadPopular=true;
+        this.popularStories$ = data;
+      },
+      (error) => {
+        this.loadPopular=false;
+        this.popularError$=error;
+      });
   }
 
   constructSrc(index){

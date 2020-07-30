@@ -49,6 +49,7 @@ p{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding:3px;
 }
 
 .main-title{
@@ -64,10 +65,17 @@ a {
       color: #323232;
   }
 
-@media only screen and (max-width: 768px){
-    .topStory{
+  .publish-date{
+      opacity: .6;
+  }
+
+  @media only screen and (max-width: 895px){
+      .topStory{
         flex-direction: column;
     }
+  }
+
+@media only screen and (max-width: 768px){
 
     .content{
         flex-direction: column;
