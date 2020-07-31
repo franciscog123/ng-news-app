@@ -13,11 +13,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu'; 
 import {MatInputModule} from '@angular/material/input'; 
+import {MatDividerModule} from '@angular/material/divider'; 
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { FooterComponent } from './footer/footer.component';
+import { SectionComponent } from './section/section.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     HomepageComponent,
     FooterComponent,
+    SectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { FooterComponent } from './footer/footer.component';
     MatMenuModule,
     MatInputModule,
     HttpClientModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

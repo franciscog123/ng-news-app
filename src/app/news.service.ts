@@ -21,7 +21,6 @@ export class NewsService {
   getTopStories() {
     return this.http.get(`https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=${this.apiKey}`,this.options)
     .pipe(
-      tap(res => console.log(res)),
       retry(1),
       catchError(this.handleError)
     );
@@ -30,7 +29,14 @@ export class NewsService {
   getPopularStories() {
     return this.http.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${this.apiKey}`,this.options)
     .pipe(
-      tap(res => console.log(res)),
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
+  getStoriesBySection(section) {
+    return this.http.get(`https://api.nytimes.com/svc/news/v3/content/all/${section}.json?api-key=${this.apiKey}&limit=20`,this.options)
+    .pipe(
       retry(1),
       catchError(this.handleError)
     );

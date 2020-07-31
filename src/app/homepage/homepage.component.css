@@ -4,6 +4,10 @@ h1, h2, h3, h4, h5{
     font-weight: 700;
 }
 
+a h1{
+    margin-bottom: 1px;
+}
+
 /* Article body font */
 p{
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -67,7 +71,10 @@ a {
 
   .publish-date{
       opacity: .6;
-  }
+      padding-top: 0px;
+      margin-top: 0px;
+      margin-bottom: 7px;
+      }
 
   @media only screen and (max-width: 895px){
       .topStory{

@@ -1,0 +1,20 @@
+<div class="content">
+    <div class="error" *ngIf="!loadStories">
+        <h1>We're sorry. We can't load the articles. It appears we've reached the per minute limit of the NY Times API free tier. Please try again in a few minutes.</h1>
+    </div>
+
+    <div *ngIf="stories$" class="stories">
+        <h2 class="main-title">{{section[0] | uppercase}}</h2>
+        <div class="loop" *ngFor="let story of stories$.results">
+            <div class="story">
+                <span class="text">
+                    <a [href]="story.url"><h1>{{story.title}}</h1></a> 
+                    <div class="publish-date">Published {{story.published_date | date:'mediumDate'}}</div>
+                    <p>{{story.abstract}}</p>    
+                </span>
+                <span *ngIf="story.multimedia" class="image"><img [src]="story.multimedia[3].url"></span>
+            </div>
+            <mat-divider ></mat-divider>
+        </div>
+    </div>
+</div>

@@ -60,3 +60,8 @@
 .submit-search-button:hover{
     background-color: #e5e5e5;
 }
+
+.mat-sidenav
+{
+    width:200px;
+}
