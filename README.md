@@ -4,7 +4,7 @@ A news website that utilizes the NY Times API. Created with the Angular framewor
 
 Live demo: https://franciscog123.github.io/ng-news-app/
 
-**Disclaimer: The NY Times API does not provide full articles. Only the article metadata is displayed and links to the full articles are provided. The NY times website is behind a metered paywall and only allows access to 5 free articles per month for visitors.**
+**Disclaimer: The NY Times API does not provide full article text. This app only displays article metadata and links to the full articles are provided. The NY times website is behind a metered paywall and only allows access to 5 free articles per month for visitors.**
 
 ## Development server
 
