@@ -1,5 +1,7 @@
 # NgNewsApp
 
+**work in progress**
+
 A news website that utilizes the NY Times API. Created with the Angular framework.
 
 Live demo: https://franciscog123.github.io/ng-news-app/
