@@ -28,8 +28,10 @@
         </button>
         <mat-menu #menu="matMenu">
             <div fxLayout="row">
-                <input class="input-bar" (click)="$event.stopPropagation();" matInput type="text" appearance="fill" placeholder="search">
-                <button mat-menu-item class="submit-search-button">Go</button>
+                <form fxLayout="row" [formGroup] ="searchForm" (ngSubmit)="onSearchSubmit()" ngNativeValidate>
+                    <input class="input-bar" formControlName="inputBar" (click)="$event.stopPropagation();" matInput type="text" appearance="fill" placeholder="search" required>   
+                    <button mat-menu-item type="submit" class="submit-search-button" (click)="$event.stopPropagation();">Go</button>
+                </form>
             </div>
         </mat-menu>
 

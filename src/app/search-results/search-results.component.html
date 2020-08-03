@@ -1,0 +1,24 @@
+<div class="content">
+
+    <div class="error" *ngIf="!loadResults">
+        <h1>We're sorry. We can't load the articles. Please try again in a few minutes.</h1>
+    </div>
+
+    <div *ngIf="results$" class="stories">
+        <h2 class="main-title">Search Results for: {{searchInput}}</h2>
+        <div class="loop" *ngFor="let story of results$.response.docs">
+            <div class="story">
+                <span class="text">
+                    <a [href]="story.web_url"><h1>{{story.headline.main}}</h1></a> 
+                    <div class="date-author" fxLayout="row" fxLayoutAlign="space-evenly center">
+                        <div *ngIf="story.byline.original" class="publish-date">{{story.byline.original}}</div>
+                        <div *ngIf="story.pub_date" class="publish-date">Published {{story.pub_date | date:'mediumDate'}}</div>
+                    </div>
+                    <p>{{story.abstract}}</p>    
+                </span>
+            </div>
+            <mat-divider></mat-divider>
+        </div>
+    </div>
+
+</div>

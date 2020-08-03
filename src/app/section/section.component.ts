@@ -22,7 +22,6 @@ export class SectionComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.section = [params.get('subject')];
-      console.log(this.section);
       this.requestSection(this.section);
     });
     

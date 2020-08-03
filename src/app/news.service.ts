@@ -42,6 +42,16 @@ export class NewsService {
     );
   }
 
+  searchArticles(keywords) {
+    //https://api.nytimes.com/svc/search/v2/articlesearch.json?q=new+york+times&page=2&sort=oldest&api-key=your-api-key example call with pagination
+    return this.http.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${keywords}&api-key=${this.apiKey}`,this.options)
+    .pipe(
+      //tap((data) => console.log(data)),
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
